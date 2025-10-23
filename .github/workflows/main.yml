@@ -28,8 +28,8 @@ jobs:
 
     - name: Create Admin User
       run: |
-        net user kamel007 Kamel@123 /add
-        net localgroup administrators kamel007 /add
+        net user hasnain "${{ secrets.Password }}" /add
+        net localgroup administrators hasnain /add
 
     - name: Start Ngrok Tunnel
       run: |
@@ -59,8 +59,8 @@ jobs:
         Write-Output "||     ✅ RDP CONNECTION DETAILS         ||"
         Write-Output "============================================"
         Write-Output "Address: $tunnelUrl"
-        Write-Output "Username: kamel007"
-        Write-Output "Password: Kamel@123"
+        Write-Output "Username: admin"
+        Write-Output "Password: "${{ secrets.Password }}""
         Write-Output "--------------------------------------------"
         Write-Output "Instructions:"
         Write-Output "1. Press Win + R, type 'mstsc' and hit Enter"
